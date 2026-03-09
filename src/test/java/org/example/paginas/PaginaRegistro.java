@@ -31,6 +31,9 @@ public class PaginaRegistro extends PageObject {
     @FindBy(xpath = "//button[@type='submit' and text()='Crear Cuenta']")
     private WebElement botonCrearCuenta;
 
+    @FindBy(xpath = "//div[text() = 'El correo electrónico ya está en uso']")
+    private WebElement mensajeError;
+
     public void ingresarNombreCompleto(String nombreCompleto) {
         campoNombreCompleto.sendKeys(nombreCompleto);
     }
@@ -49,6 +52,14 @@ public class PaginaRegistro extends PageObject {
 
     public void hacerClicEnCrearCuenta() {
         botonCrearCuenta.click();
+    }
+
+    public String obtenerTextoMensajeError() {
+        return mensajeError.getText();
+    }
+
+    public boolean mensajeErrorEsVisible() {
+        return mensajeError.isDisplayed();
     }
 
     public String obtenerUrlActual() {

@@ -66,4 +66,20 @@ public class PasosRegistroUsuario {
                 .as("El usuario debería haber sido redirigido al dashboard tras el registro")
                 .contains("/dashboard");
     }
+
+    @Then("se muestra un mensaje de error en el formulario")
+    public void seMuestraMensajeDeError() {
+        new WebDriverWait(paginaRegistro.getDriver(), Duration.ofSeconds(10))
+                .until(driver -> paginaRegistro.mensajeErrorEsVisible());
+        assertThat(paginaRegistro.mensajeErrorEsVisible())
+                .as("Debería mostrarse un mensaje de error en el formulario")
+                .isTrue();
+    }
+
+    @And("el usuario permanece en la página de registro")
+    public void usuarioPermanecePaginaRegistro() {
+        assertThat(paginaRegistro.obtenerUrlActual())
+                .as("El usuario debería permanecer en la página de registro")
+                .contains("/register");
+    }
 }
