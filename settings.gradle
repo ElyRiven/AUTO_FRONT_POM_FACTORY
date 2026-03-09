@@ -11,4 +11,3 @@ plugins {
 }
 
 rootProject.name = 'AUTO_FRONT_POM_FACTORY'
-include('app')
