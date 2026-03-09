@@ -1,4 +1,3 @@
-#language: es
 Feature: Registro de Usuario
 
   Scenario Outline: Registro exitoso con credenciales válidas

@@ -1,17 +1,28 @@
 package org.example.pasos;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.core.Serenity;
 import org.example.paginas.PaginaRegistro;
-import org.example.utilidades.Constantes;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PasosRegistroUsuario {
 
-    PaginaRegistro paginaRegistro;
+    private PaginaRegistro paginaRegistro;
+
+    @Before
+    public void inicializar() {
+        WebDriver driver = Serenity.getWebdriverManager().getWebdriver();
+        paginaRegistro = new PaginaRegistro(driver);
+    }
 
     @Given("que el usuario está en la página de registro")
     public void usuarioEnPaginaRegistro() {
@@ -45,8 +56,8 @@ public class PasosRegistroUsuario {
 
     @Then("la cuenta se crea a través de Firebase Authentication")
     public void cuentaCreadaEnFirebase() {
-        paginaRegistro.waitForCondition()
-                .until(driver -> !driver.getCurrentUrl().contains(Constantes.URL_REGISTRO));
+        new WebDriverWait(paginaRegistro.getDriver(), Duration.ofSeconds(10))
+                .until(driver -> !driver.getCurrentUrl().contains("/register"));
     }
 
     @And("el usuario es redirigido al dashboard")
