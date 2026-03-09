@@ -24,7 +24,10 @@ Funcionalidad: Registro de Usuario
 
   Escenario: Registro exitoso con credenciales válidas
     Dado que el usuario está en la página de registro (/register)
-    Cuando el usuario completa nombre, correo, contraseña y confirmación válidos
+    Cuando el usuario ingresa su nombre completo
+    Y ingresa su correo electrónico
+    Y ingresa una contraseña
+    Y ingresa la confirmación de su contraseña
     Y hace clic en el botón "Crear Cuenta"
     Entonces la cuenta se crea a través de Firebase Authentication
     Y el usuario es redirigido al dashboard (/dashboard)
