@@ -1,13 +1,20 @@
 package org.example.paginas;
 
+import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;
-import net.thucydides.core.annotations.DefaultUrl;
 import org.example.utilidades.Constantes;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 @DefaultUrl(Constantes.URL_REGISTRO)
 public class PaginaRegistro extends PageObject {
+
+    public PaginaRegistro(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(id = "displayName")
     private WebElement campoNombreCompleto;
