@@ -1,8 +1,9 @@
-package org.example.paginas;
+package org.example.pages;
 
 import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;
-import org.example.utilidades.Constantes;
+
+import org.example.utils.Constantes;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
