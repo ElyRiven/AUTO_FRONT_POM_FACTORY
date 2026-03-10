@@ -1,9 +1,5 @@
 package org.example.utilidades;
 
-/**
- * Constantes globales del proyecto de automatización.
- * Centraliza URLs y valores reutilizables en todos los tests.
- */
 public final class Constantes {
 
     private Constantes() {}
